@@ -1,0 +1,9 @@
+<nav>
+      <ul>
+        {% if request.user.is_authenticated %}
+        <li><a href="/accounts/logout"><button>Logout</button></a></li>
+        {% else %}
+        <li><a href="/accounts/login">Login</a></li>
+        {% endif %}
+    </ul>
+</nav>

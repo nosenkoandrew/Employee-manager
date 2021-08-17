@@ -1,0 +1,30 @@
+{% extends 'management/base.html' %}
+{% block content %}
+    <h1>{{ welcome_message }}</h1>
+    <br>
+    <div>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>COUNT</th>
+                <th>NAME</th>
+                <th>POSITION</th>
+                <th>SALARY</th>
+                <th>PARENT</th>
+                <th>DELETE</th>
+              </tr>
+            </thead>
+          {% for employee in employees %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{employee.first_name}} {{employee.last_name}}</td>
+                <td>{{employee.position}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.parent}}</td>
+
+
+              </tr>
+          {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -12,3 +12,16 @@ def home_view(request):
         'employees': employees,
     }
     return render(request, "management/home.html", context)
+
+
+def list_view(request):
+    title = " Employee List "
+    employees = Employee.objects.all()
+
+    context = {
+        'welcome_message': title,
+        'employees': employees,
+    }
+
+    return render(request, "management/employee_list.html", context)
+

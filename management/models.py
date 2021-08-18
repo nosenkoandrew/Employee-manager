@@ -24,6 +24,7 @@ class Employee(MPTTModel):
     salary = models.IntegerField(default="0", blank=True, null=True)
     created_time = models.DateTimeField(null=True, auto_now_add=True, auto_now=False)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    employee_avatar = models.ImageField(null=True, blank=True, default='/avatar.png', upload_to='images/')
 
     class MPTTMeta:
         order_insertion_by = ['first_name']

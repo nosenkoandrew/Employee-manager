@@ -11,6 +11,7 @@
                 <th>POSITION</th>
                 <th>SALARY</th>
                 <th>PARENT</th>
+                <th>AVATAR</th>
                 <th>DELETE</th>
               </tr>
             </thead>
@@ -21,7 +22,7 @@
                 <td>{{employee.position}}</td>
                 <td>{{employee.salary}}</td>
                 <td>{{employee.parent}}</td>
-
+                <td><img class='empl_avatar' src="{{employee.employee_avatar.url}}"></td>
 
               </tr>
           {% endfor %}

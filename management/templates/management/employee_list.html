@@ -10,7 +10,7 @@
                 <th>NAME</th>
                 <th>POSITION</th>
                 <th>SALARY</th>
-                <th>PARENT</th>
+                <th>SUPERVISOR</th>
                 <th>AVATAR</th>
                 <th>DELETE</th>
               </tr>
@@ -23,7 +23,7 @@
                 <td>{{employee.salary}}</td>
                 <td>{{employee.parent}}</td>
                 <td><img class='empl_avatar' src="{{employee.employee_avatar.url}}"></td>
-
+                <td><a href="{% url 'delete_employee' employee.id %}">Delete</a></td>
               </tr>
           {% endfor %}
         </table>

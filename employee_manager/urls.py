@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from management import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('management.urls', namespace='management')),
     path('accounts/', include('allauth.urls')),
+    path('', include('management.urls', namespace='management')),
     path('employee_list/', include('management.urls', namespace='management')),
+    path('delete_employee/<str:pk>/', views.delete_employee, name='delete_employee'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

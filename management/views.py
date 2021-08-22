@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import *
 
 
@@ -24,4 +25,13 @@ def list_view(request):
     }
 
     return render(request, "management/employee_list.html", context)
+
+
+def delete_employee(request, pk):
+    employee = Employee.objects.get(id=pk)
+    if request.method == 'POST':
+        employee.delete()
+        messages.success(request, 'Successfully deleted')
+        return redirect('/employee_list/')
+    return render(request, 'management/delete_employee.html')
 

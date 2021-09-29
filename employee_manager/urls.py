@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('management.urls', namespace='management')),
     path('employee_list/', include('management.urls', namespace='management')),
     path('delete_employee/<str:pk>/', views.delete_employee, name='delete_employee'),
+    path('add_employee/', views.add_employee, name='add_employee'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

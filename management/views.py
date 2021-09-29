@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import *
+from .forms import AddEmployeeForm
 
 
 def home_view(request):
@@ -35,3 +36,16 @@ def delete_employee(request, pk):
         return redirect('/employee_list/')
     return render(request, 'management/delete_employee.html')
 
+
+def add_employee(request):
+    form = AddEmployeeForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Successfully added')
+        return redirect('/employee_list')
+
+    context = {
+        'form': form,
+        'title': "Add title",
+    }
+    return render(request, 'management/add_employee.html', context)

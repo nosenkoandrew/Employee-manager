@@ -1,0 +1,16 @@
+{% extends 'management/base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="">
+        <form method="post" action="">
+            {% csrf_token %}
+            <h1>Delete item ?</h1>
+            <input class="" type="submit" value="Yes">
+            <a href="/employee_list"><div class="">Cancel</div></a>
+        </form>
+    </div>
+</main>
+
+{% endblock content %}
